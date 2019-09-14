@@ -45,8 +45,13 @@ public:
         int k1=(n1+n2+1)/2;
         int k2=(n1+n2)/2+1;
         double out1=helper(nums1,nums2,0,n1-1,0,n2-1,k1);
-        double out2=helper(nums1,nums2,0,n1-1,0,n2-1,k2);
-        return (out1+out2)/2;
+
+        if((n1+n2)%2)
+            return out1;
+        else{
+            double out2=helper(nums1,nums2,0,n1-1,0,n2-1,k2);
+            return (out1+out2)/2;
+        } 
     }
     int helper(vector<int>& nums1,vector<int>& nums2,int s1,int e1,int s2,int e2,int k){
         if(s1>e1)
