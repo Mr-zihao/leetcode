@@ -34,7 +34,7 @@ class Solution {
 public:
     string longestPalindrome(string s) {
 /*     method 1    */
-//  /*
+  /*
         int n=s.size();
         vector<vector<bool>> dp(n,vector<bool>(n,false));
         int max_L=0;
@@ -52,9 +52,9 @@ public:
             }
         }
         return s.substr(start,max_L);
-// */
+ */
 /*   methon 2    */
-/*
+///*
         int max_L=0;
         int start=0;
         int n=s.size();
@@ -70,6 +70,6 @@ public:
             }
         }
         return s.substr(start,max_L);
-*/        
+//*/        
     }
 };
