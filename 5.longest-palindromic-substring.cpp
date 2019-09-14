@@ -33,6 +33,8 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
+/*     method 1    */
+/*
         int n=s.size();
         vector<vector<bool>> dp(n,vector<bool>(n,false));
         int max_L=0;
@@ -47,6 +49,23 @@ public:
                     max_L=i-j+1;
                     start=j;
                 }
+            }
+        }
+        return s.substr(start,max_L);
+*/
+/*   methon 2    */
+        int max_L=0;
+        int start=0;
+        int n=s.size();
+        for(float i=0;i<n;i+=0.5){
+            int b=int(i),e=int(i+0.5);
+            while(b>=0 && e<n && s[b]==s[e]){
+                if(e-b+1>max_L){
+                    max_L=e-b+1;
+                    start=b;
+                }
+                b--;
+                e++;
             }
         }
         return s.substr(start,max_L);
