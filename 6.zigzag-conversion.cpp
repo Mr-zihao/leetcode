@@ -59,15 +59,13 @@ public:
         vector<string> out(numRows,"");
         int groups=n/g_num;
         int remain=n%g_num;
+        int internal;
         for(int i=0;i<groups;i++){
             for(int j=0;j<numRows;j++){
-                if(j==0)
-                    out[j]+=s[g_num*i];
-                else if(j==numRows-1)
-                    out[j]+=s[i*g_num+numRows-1];
-                else{
-                    int internal=numRows-1-j;
-                    out[j]+=s[i*g_num+j];
+                out[j]+=s[g_num*i+j];
+                if(j>0 && j<numRows-1)
+                {
+                    internal=numRows-1-j;
                     out[j]+=s[i*g_num+numRows-1+internal];
                 }
             }
