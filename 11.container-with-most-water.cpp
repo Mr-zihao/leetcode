@@ -39,6 +39,7 @@
 class Solution {
 public:
     int maxArea(vector<int>& height) {
+/*
         int res=0;
         int temp;
         for(int i=0;i<height.size()-1;i++){
@@ -47,6 +48,19 @@ public:
                 if(temp>res)
                     res=temp;
             }
+        }
+        return res;
+*/
+        int i=0;
+        int j=height.size()-1;
+        int res=0;
+        int temp;
+        while(i<j){
+            temp=min(height[i],height[j])*(j-i);
+            if(temp>res)
+                res=temp;
+            if(height[i]<height[j]) i++;
+            else j--;
         }
         return res;
     }
