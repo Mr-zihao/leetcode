@@ -53,8 +53,7 @@ public:
         ListNode* pre=dummy;
         ListNode* pre_t;
         dummy->next=head;
-        ListNode* p;
-        ListNode* h;
+        ListNode *p,*h,*t;
         int i;
         int count=0;
         while(head){
@@ -65,7 +64,6 @@ public:
                 i=k;
                 p=NULL;
                 h=pre->next;
-                ListNode* t;
                 while(i>0){
                     t=h->next;
                     h->next=p;
