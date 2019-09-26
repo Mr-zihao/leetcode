@@ -71,14 +71,15 @@ public:
         
     }
     bool helper(string& s ,int beg,unordered_map<string,int>& m,int& l,int& cnt,int& total){
+        string temp=s.substr(beg,l);
         if(cnt==total)
             return true;
-        else if(beg>s.size()-l)
+        else if(temp.size()<l)
             return false;
-        else if (m.find(s.substr(beg,l))!=m.end() && m[s.substr(beg,l)]!=0)
+        else if (m.find(temp)!=m.end() && m[temp]!=0)
         {   
             cnt++;
-            m[s.substr(beg,l)]--;
+            m[temp]--;
             return helper(s,beg+l,m,l,cnt,total);
         }
         return false;
